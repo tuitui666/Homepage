@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>网抑云音乐</title>
+    <link rel="shortcut icon" href="images/音乐.png">
+</head>
+<style>
+    a{
+        text-decoration: none;
+    }
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    @font-face {
+        font-family: 'iconfont';
+        src: url('font4/iconfont.eot');
+        src: url('font4/iconfont.eot?#iefix') format('embedded-opentype'),
+        url('font4/iconfont.woff2') format('woff2'),
+        url('font4/iconfont.woff') format('woff'),
+        url('font4/iconfont.ttf') format('truetype'),
+        url('font4/iconfont.svg#iconfont') format('svg');
+    }
+    @font-face {
+        font-family: 'iconfont';
+        src: url('font3/iconfont.eot');
+        src: url('font3/iconfont.eot?#iefix') format('embedded-opentype'),
+        url('font3/iconfont.woff2') format('woff2'),
+        url('font3/iconfont.woff') format('woff'),
+        url('font3/iconfont.ttf') format('truetype'),
+        url('font3/iconfont.svg#iconfont') format('svg');
+    }
+    @font-face {
+        font-family: 'iconfont';
+        src: url('font5/iconfont.eot');
+        src: url('font5/iconfont.eot?#iefix') format('embedded-opentype'),
+        url('font5/iconfont.woff2') format('woff2'),
+        url('font5/iconfont.woff') format('woff'),
+        url('font5/iconfont.ttf') format('truetype'),
+        url('font5/iconfont.svg#iconfont') format('svg');
+    }
+    .iconfont {
+        font-family: "iconfont" !important;
+        font-size: 22px;
+        font-style: normal;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        position: absolute;
+        top: 12px;
+        right: 20px;
+        color: #fff;
+    }
+    .iconfont1 {
+        font-family: "iconfont" !important;
+        font-size: 16px;
+        font-style: normal;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        font-size: 20px;
+        margin-left: 10px;
+        color: blue;
+        margin-right: 5px;
+    }
+    .iconfont2 {
+        font-family: "iconfont" !important;
+        font-size: 22px;
+        font-style: normal;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        margin-left: 14px;
+    }
+    .iconfont1:hover,
+    .iconfont2:hover{
+        color:rgb(36, 131, 255);
+    }
+    body{
+        background: url(images/W4.jpg);
+        background-size: cover;
+    }
+    ul{
+        list-style: none;
+        height: 500px;
+        overflow-y: scroll;
+    }
+    #music{
+        width: 1000px;
+        height: 626px;
+        /* color="#323635" */
+        /* background-color: rgb(104, 104, 104); */
+        margin: 130px auto;
+        border-radius: 4px;
+        /* border:1px solid #fff; */
+        box-shadow: 1px 1px 40px, -1px -1px 40px rgba(0,0,0,0.1);
+    }
+    .title{
+        margin: 20px 30px;
+        display: inline-block;
+        font-size: 25px;
+        color: #fff;
+
+    }
+    header{
+        background-color:#858585;
+        border-radius: 4px 4px 0 0;
+    }
+    .search{
+        display: inline-block;
+        width: 400px;
+        height: 50px;
+        background-color: #323635;
+        float: right;
+        margin-right: 40px;
+        margin-top: 10px;
+        border-radius: 30px;
+        position: relative;
+    }
+    .box{
+        width: 350px;
+        margin: 10px 20px;
+        height: 30px;
+        font-size: 20px;
+        background-color: #323635;
+        color: #fff;
+        font-weight: 100;
+        outline: none;
+        border: none;
+    }
+    .banner{
+        height: 500px;
+        background-color: rgba(255, 255, 255, 0.5);
+        z-index: -1;
+    }
+    footer{
+        height: 50px;
+        background-color: rgb(68, 68, 68);
+        border-radius: 0 0 4px 4px;
+        z-index: 1;
+    }
+    .left{
+        display: inline-block;
+        width: 240px;
+        height: 500px;
+        float: left;
+    }
+    .center{
+        width: 500px;
+        display: inline-block;
+        height: 500px;
+        /* background-color: blue; */
+        float: left;
+        position: relative;
+    }
+    .right{
+        float: right;
+        /* background-color: green; */
+        height: 500px;
+        width: 258px;
+    }
+    .disc{
+        width: 255px;
+        height: 255px;
+        background: url(images/disc.png);
+        display: inline-block;
+        position: absolute;
+        top: 80px;
+        left: 130px;
+        position: relative;
+    }
+    /* 播放杆 */
+    .player{
+        background: url(images/player_bar.png) -2px -10px;
+        width: 150px;
+        height: 150px;
+        display: inline-block;
+        background-repeat: no-repeat;
+        float: right;
+        margin-right: 100px;
+        position: absolute;
+        left: 230px;
+        transform: rotate(-25deg);
+        transform-origin: 12px 12px;
+        transition: 1s;
+    }
+    /* 播放杆转回去 */
+    .player1{
+        transform: rotate(0);
+    }
+    .line1{
+        float: left;
+    }
+    .left ul li{
+        color: rgb(27, 27, 27);
+        width: 230px;
+        line-height: 50px;
+        /* border:1px solid pink; */
+        /* color: white; */
+    }
+    .left ul li:nth-child(odd){
+        background-color: rgba(255,255,255,0.3);
+    }
+    h2{
+        margin-top: 10px;
+        margin-left: 10px;
+        font-size: 20px;
+    }
+    .sub{
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: #fff;
+        margin: 5px 0 0 10px;
+    }
+    .t1{
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        border-radius: 50%;
+        display: inline-block;
+    }
+    .webname{
+        position: absolute;
+        top: 4px;
+        font-size: 15px;
+        left: 70px;
+    }
+    .right li{
+        position: relative;
+        margin-bottom: 10px;
+        height: 100px;
+        width: 258px;
+        overflow: scroll;
+    }
+    .com{
+        position: absolute;
+        top: 30px;
+        left: 70px;
+        color: #333;
+    }
+    .center1{
+        width: 145px;
+        height: 145px;
+        position: absolute;
+        top: 55px;
+        left: 58px;
+        border-radius: 50%;
+    }
+    .voice{
+        /* width: 1000px;
+        height: 50px;
+        outline: none;
+        background-color: rgb(68, 68, 68); */
+        width: 1000px;
+        height: 50px;
+        outline: none;
+        background-color: #f1f3f4;
+        border-radius: 0 0 4px 4px;
+        z-index: 1;
+    }
+    .cover{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        float: left;
+        background-color: rgba(0, 0, 0, 0.7);
+    }
+    .cover video{
+        position: fixed;
+        margin-top: 100px;
+        width: 800px;
+        height: 546px;
+        left: 300px;
+    }
+    /* @keyframes Rotate {
+from {
+    transform: rotateZ(0);
+}
+to {
+    transform: rotateZ(360deg);
+}
+}
+/* 旋转的类名 */
+    /* .autoRotate {
+    animation-name: Rotate;
+    animation-iteration-count: infinite;
+    animation-play-state: paused;
+    animation-timing-function: linear;
+    animation-duration: 5s;
+    } */
+    /* 是否正在播放 */
+    /* .player_con.playing .disc,
+    .player_con.playing .cover {
+    animation-play-state: running;
+    } */
+    /* 黑胶的转动 */
+    @keyframes go{
+        from{
+            transform:rotateZ(0)
+        }
+        to{
+            transform:rotateZ(360deg)
+        }
+    }
+    .autoGo{
+        animation: go 5s linear 0s infinite;
+    }
+    /* 黑胶暂停 */
+    .disc1{
+        animation-play-state: running;
+    }
+
+</style>
+<body>
+<div id="music">
+    <header>
+        <span class="title">网抑云音乐</span>
+        <div class="search">
+            <input type="text" placeholder="搜索" class="box" @keyup.enter="insearch" v-model="query">
+            <a href="javascript:;" class="iconfont" @click="insearch">&#xe501;</a>
+        </div>
+    </header>
+    <div class="banner">
+        <div class="left">
+            <ul>
+                <li v-for="item in musiclist">
+                    <a href="javascript:;" class="iconfont1" @click="pl(item.id)">&#xe601;</a>
+                    {{item.name}}
+                    <a href="javascript:;" class="iconfont2" v-if="item.mvid!=0" @click="mvPlay(item.mvid)">&#xe6af;</a>
+                </li>
+            </ul>
+        </div>
+        <img src="images/line.png" alt="" class="line1">
+        <img src="images/line.png" alt="" class="line2">
+        <div class="center">
+                <span class="disc" :class="{autoGo:isPlay}">
+                    <img src="images/C1.JPG" class="center1">
+                    <img src="" class="center1" :src="picSrc" v-if="picSrc">
+                </span>
+            <span class="player" :class="{player1:isPlay}"></span>
+        </div>
+        <div class="right">
+            <h2>热门留言</h2>
+            <ul>
+                <li v-for="item in hotComments">
+                        <span class="sub">
+                            <img src="" :src="item.user.avatarUrl" alt="" class="t1">
+                        </span>
+                    <span class="webname">{{item.user.nickname}}</span>
+                    <span class="com">{{item.content}}</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <footer>
+        <!-- <audio ref="audio" src="" controls="" autoplay="" loop="" class="myaudio"></audio> -->
+        <audio  src="" controls autoplay="" loop="" ref="audio" class="voice" :src="musicSrc"@play="play" @pause="pause"></audio>
+    </footer>
+    <div class="cover" v-if="cover" @click="close">
+        <video ref='video' src="" controls :src="mvUrl" autoplay="" ></video>
+    </div>
+</div>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    var music=new Vue({
+        el:"#music",
+        data:{
+            query:"",
+            musiclist:[],
+            musicSrc:"",
+            picSrc:"",
+            hotComments:[],
+            mvUrl:"",
+            cover:false,
+            isPlay:false
+        },
+        methods:{
+            insearch:function(){
+                var that=this;
+                axios.get("https://autumnfish.cn/search?keywords="+this.query).then(function(response){
+                    console.log(response);
+
+                    that.musiclist=response.data.result.songs;
+                },function(err){
+                    console.log(err);
+
+                })
+                that.query=""
+            },
+            pl:function(musicid){
+                var that=this;
+                that.isPlay=true;
+                axios.get("https://autumnfish.cn/song/url?id="+musicid).then(function(response){
+                    that.musicSrc=response.data.data[0].url;
+                    console.log(that.musicSrc);
+                });
+
+                axios.get("https://autumnfish.cn/song/detail?ids="+musicid).then(function(response){
+                    console.log(response.data.songs[0].al.picUrl);
+                    that.picSrc=response.data.songs[0].al.picUrl;
+                })
+                axios.get("https://autumnfish.cn/comment/hot?type=0&id="+musicid).then(function(response){
+                    console.log(response.data.hotComments);
+                    that.hotComments=response.data.hotComments;
+                    console.log(that.hotComments.content);
+
+                })
+            },
+            mvPlay:function(mvid){
+                this.cover=true;
+                var that=this;
+                axios.get("https://autumnfish.cn/mv/url?id="+mvid).then(function(response){
+                    console.log(response);
+                    that.mvUrl=response.data.data.url;
+                })
+                this.$refs.audio.pause();
+            },
+            close:function(){
+                this.cover=false;
+                this.$refs.video.pause();
+            },
+            pause:function(){
+                this.isPlay=false;
+
+            },
+            play:function(){
+                console.log(0o00);
+                this.isPlay=true;
+
+            }
+        }
+    })
+</script>
+</body>
+</html>

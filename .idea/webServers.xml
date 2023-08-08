@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="261e45ac-7070-4dd1-b97d-69839ffc0d58" name="git" url="https://github.com/tuitui666/Homepage.git">
+        <fileTransfer port="21">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+    <groups>
+      <group>
+        <name>git仓库</name>
+        <servers>
+          <name value="git" />
+        </servers>
+      </group>
+    </groups>
+  </component>
+</project>
