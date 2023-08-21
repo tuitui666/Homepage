@@ -67,10 +67,6 @@ ul{
     border: none;color: white;
     border-radius: 10px
 }
-.musicbox{
-    width: 200px;
-    height: 30px;
-}
 /* 备案 */
 .beian{
     text-decoration: none;
@@ -80,4 +76,14 @@ ul{
     align-items: center;
     left: 50%;
 }
-
+.music{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0;
+    z-index: 99;
+    overflow: visible;
+    max-width: 344px;
+    box-shadow: none;
+}
